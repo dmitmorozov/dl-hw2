@@ -1,0 +1,97 @@
+{
+  "track": "cv",
+  "model": "yolo26n.pt",
+  "revision": "ultralytics==8.4.216; sha256=9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "dataset": "Fruit Images for Object Detection, https://www.kaggle.com/datasets/mbkinaci/fruit-images-for-object-detection, CC0",
+  "classes": [
+    "apple",
+    "banana",
+    "orange"
+  ],
+  "n_train": 192,
+  "n_val": 48,
+  "n_test": 60,
+  "params_total": 2572280,
+  "baseline": {
+    "split": "test",
+    "coco_map50": 0.65175188867542,
+    "heuristic_map50": 0.32908312715946836,
+    "heuristic_ap50_per_class": {
+      "apple": 0.3887718371437179,
+      "banana": 0.37031932773109244,
+      "orange": 0.22815821660359475
+    }
+  },
+  "final": {
+    "precision": 0.855437434564193,
+    "recall": 0.7880116192954757,
+    "map50": 0.8864430003066964,
+    "map50_95": 0.5986704999583681,
+    "per_class": {
+      "apple": {
+        "precision": 0.8138178554855486,
+        "recall": 0.8743996114803324,
+        "map50": 0.876260871499235,
+        "map50_95": 0.6774810468451042
+      },
+      "banana": {
+        "precision": 0.7524944482070304,
+        "recall": 0.775,
+        "map50": 0.8327719065306417,
+        "map50_95": 0.49554031223925976
+      },
+      "orange": {
+        "precision": 1.0,
+        "recall": 0.7146352464060945,
+        "map50": 0.9502962228902128,
+        "map50_95": 0.6229901407907404
+      }
+    }
+  },
+  "ablation": {
+    "parameter": "model_size",
+    "split": "val",
+    "baseline": {
+      "weights": "yolo26n.pt",
+      "map50": 0.9363933786560258,
+      "map50_95": 0.6775766742377347,
+      "train_time_sec": 80.17917877699995
+    },
+    "variant": {
+      "weights": "yolo26s.pt",
+      "map50": 0.9662909953424185,
+      "map50_95": 0.703592746113433,
+      "train_time_sec": 197.51470410899998
+    }
+  },
+  "errors": {
+    "tp": 73,
+    "class": 0,
+    "localization": 5,
+    "background": 8,
+    "missed": 9
+  },
+  "device": "Tesla T4",
+  "train_time_sec": 80.17917877699995,
+  "fast_mode": false,
+  "train_args": {
+    "epochs": 60,
+    "imgsz": 640,
+    "batch": 16,
+    "seed": 0,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "patience": 12,
+    "val": true,
+    "fliplr": 0.5,
+    "flipud": 0.0,
+    "hsv_h": 0.0,
+    "hsv_s": 0.3,
+    "hsv_v": 0.25
+  },
+  "run_times": {
+    "heuristic": 3.477060474000041,
+    "train": 80.17917877699995,
+    "ablation": 197.51470410899998
+  }
+}
